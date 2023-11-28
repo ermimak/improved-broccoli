@@ -1,0 +1,14 @@
+apiVersion: app/v1
+kind: Ingress
+metadata:
+  name: improved-broccoli
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: improved-broccoli
+              servicePort: 8000

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: improved-broccoli
+spec:
+  selector:
+    matchLabels:
+      run: improved-broccoli
+  template:
+    metadata:
+      labels:
+        run: improved-broccoli
+    spec:
+      containers:
+        - name: improved-broccoli
+          image: ermiasdev/improved-broccoli:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_KEY
+              value: base64:Ngkm6EVBx+53N30fPuQ1VOq/g74pcD5gUncwbP0eWvg=
